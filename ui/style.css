@@ -16,6 +16,10 @@ body {
     font-weight: bold;
 }
 
+p {
+    color: red;
+}
+
 .img-medium {
     height: 200px;
 }
