@@ -8,6 +8,7 @@ app.use(morgan('combined'));
 var articleOne = {
     title: 'Article-One',
     date: 'Sep 26, 2016',
+    heading: 'My First Article'
     content: `
       <p> 
       Here goes my first article. Not much to say here just that, I would like to learn a lot. Here goes my first article. Not much to say 
@@ -20,25 +21,29 @@ var articleOne = {
 function createTemplate(data){
     var title = data.title;
     var date = data.date;
+    var heading = data.heading;
     var content = data.content;
+    
     var htmlTemplate = `
     <!doctype html>
     <html>
         <head>
             <link href="/ui/style.css" rel="stylesheet" />
             <title> 
-                $(title) 
+                ${title} 
             </title>
         </head>
         <body class = article-body>
             <div>
-                <h1 class = bold> My First Article </h1>
+                <h1 class = bold> 
+                    ${heading}; 
+                </h1>
                 <hr>
                 <p> 
-                    $(date) 
+                    ${date} 
                 </p>
                 <p> 
-                    $(content)
+                    ${content}
                 </p>
             </div>            
         </body>
