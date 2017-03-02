@@ -5,17 +5,34 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article-One',
-    date: 'Sep 26, 2016',
-    heading: 'My First Article'
-    content: `
-      <p> 
-      Here goes my first article. Not much to say here just that, I would like to learn a lot. Here goes my first article. Not much to say 
-      here just that, I would like to learn a lot. Here goes my first article. Not much to say here just that, I would like to learn a lot.
-      Here goes my first article. Not much to say here just that, I would like to learn a lot. Here goes my first article. Not much to say 
-      here just that, I would like to learn a lot.
-      </p>`
+var articles = {
+  'article-one' : {
+      title: 'Article-One',
+      date: 'Feb 2, 2017',
+      heading: 'My First Article',
+      content: 
+        `<p> 
+        Here goes my first article. Not much to say here just that, I would like to learn a lot. Here goes my first article. Not much to say 
+        here just that, I would like to learn a lot. Here goes my first article. Not much to say here just that, I would like to learn a lot.
+        Here goes my first article. Not much to say here just that, I would like to learn a lot. Here goes my first article. Not much to say 
+        here just that, I would like to learn a lot.
+        </p>`},
+  'article-two' : {
+      title: 'Article-Two',
+      date: 'Feb 2, 2017',
+      heading: 'My Second Article',
+      content: 
+        `<p> 
+        Here goes my second article.
+        </p>`},
+  'article-three' : {
+      title: 'Article-Three',
+      date: 'Feb 2, 2017',
+      heading: 'My Third Article',
+      content: 
+        `<p> 
+        Here goes my third article.
+        </p>`}
 };
 
 function createTemplate(data){
@@ -36,7 +53,7 @@ function createTemplate(data){
         <body class = article-body>
             <div>
                 <h1 class = bold> 
-                    ${heading}; 
+                    ${heading}
                 </h1>
                 <hr>
                 <p> 
@@ -49,24 +66,25 @@ function createTemplate(data){
         </body>
     </html> `;
     return htmlTemplate;
-}
+};
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+  var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
+/*app.get('/article-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 
 
 app.get('/article-three', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+});*/
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
