@@ -4,15 +4,31 @@
         <link href="/ui/style.css" rel="stylesheet" />
     </head>
     <body>
+
         <div class="center">
-            <img src="/ui/madi.png" class="img-medium"/>
+            <img src="/ui/profilePic.jpg" id="img" class="img-medium"/>
         </div>
         <br>
-        <div class="center text-big bold">
-            Hi! I am your webapp.
-            <p> Checking to see if style works</p>
-        </div>            
+        <div> 
+            <h1>Personal</h1>          
+            <hr>
+            <p>Hi! My Name is Saggy Dubbey.</p>
+            <h1>Professional</h1>          
+            <hr>
+            <p>I work at Cognizant.</p>
+            <hr>
+            <p> Comments: </p>
+            <ul id = "comment_list">
+            </ul>
+            <hr>
+            <textarea rows="4" cols = "50" id = "commentInput"></textarea>
+            <br>
+            <input type="submit" id="sub_btn"></input>
+            <hr> 
+        </div>
+
         <script type="text/javascript" src="/ui/main.js">
         </script>
+        
     </body>
 </html>
