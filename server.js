@@ -9,7 +9,7 @@ var config = {
     database: 'sagarneel-dubey',
     host: 'db.imad.hasura-app.io',
     port: '5432',
-    password: process.env.DB-PASSWORD
+    password: 'ssh-sagarneel-dubey-90179'
 };
 
 var app = express();
