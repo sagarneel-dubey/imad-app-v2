@@ -103,7 +103,7 @@ app.get('/test-db', function (req, res) {
       } else {
           res.send(JSON.stringiy(result));
       }
-  }
+  });
 });
 
 app.get('/counter', function (req, res) {
